@@ -36,24 +36,30 @@ int main(int argc, char* argv[]) {
     fin.ignore();
 
     Matrix m1(numRows, numCols);
-    /*while (getline(fin, line)) {
+    while (getline(fin, line)) {
         if (line.length() == 0) {
             break;
         }
         st >> row >> col >> value;
         cout << line << endl;
         m1.Insert(row, col, value);
-    }*/
+    }
     
-    /*fin >> numRows >> numCols;
-    fin.ignore();*/
-    Matrix m2(4, 4);
-    
-    
+    fin >> numRows >> numCols;
+    fin.ignore();
+    Matrix m2(numRows, numCols);
+    while (getline(fin, line)) {
+        if (line.length() == 0) {
+            break;
+        }
+        st >> row >> col >> value;
+        cout << line << endl;
+        m2.Insert(row, col, value);
+    }
 
     m1.Print(fout);
     cout << endl;
-    Matrix m2(m1);
+    //Matrix m2(m1);
     m2.Print(fout);
     cout << endl;
 
