@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
     char operation;
     int numRows = 0; int numCols = 0;
     int row = 0; int col = 0; int value = 0;
-    string line;
+    string line; stringstream st(line);
 
     fin >> operation;
     cout << operation << endl;
@@ -36,46 +36,32 @@ int main(int argc, char* argv[]) {
     fin.ignore();
 
     Matrix m1(numRows, numCols);
-    while (getline(fin, line)) {
+    /*while (getline(fin, line)) {
         if (line.length() == 0) {
             break;
         }
-        stringstream st(line);
         st >> row >> col >> value;
         cout << line << endl;
         m1.Insert(row, col, value);
-    }
+    }*/
+    
+    /*fin >> numRows >> numCols;
+    fin.ignore();*/
+    Matrix m2(4, 4);
+    
+    
 
-
-    //second matrix
-    cout << "------------------------------" << endl;
-    fin >> numRows >> numCols;
-    cout << numRows << " " << numCols << endl;
-    fin.ignore();
-
-    Matrix m2(numCols, numRows);
-    while (getline(fin, line)) {
-        if (line.length() == 0) {
-            break;
-        }
-        stringstream st(line);
-        st >> row >> col >> value;
-        cout << line << endl;
-        m2.Insert(row, col, value);
-    }
-
-    cout << endl;
     m1.Print(fout);
     cout << endl;
+    Matrix m2(m1);
     m2.Print(fout);
-    
-    
-    Matrix m3 = m1 + m2;
     cout << endl;
-    m3.Print(fout);
 
+    Matrix m3 = m1;
+    m3.Print(fout);
     cout << endl;
-    Matrix m4 = m3.transpose();
+
+    Matrix m4 = m1 + m3;
     m4.Print(fout);
 
     return 0;
