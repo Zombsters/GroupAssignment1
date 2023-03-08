@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArgumentManager.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Matrix.h" />
   </ItemGroup>
   <ItemGroup>

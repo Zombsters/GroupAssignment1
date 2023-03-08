@@ -5,14 +5,15 @@
 #include<sstream>
 #include "ArgumentManager.h"
 #include "Matrix.h"
+#include "LinkedList.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
     ArgumentManager am(argc, argv);
 
 
-    ifstream fin(am.get("input"));
-    ofstream fout(am.get("output"));
+    ifstream fin("input1.txt");
+    ofstream fout("output1.txt");
     /*string in_filename;
     string out_filename;
     cout << "Enter the name of the input file:\n";
@@ -25,7 +26,7 @@ int main(int argc, char* argv[]) {
     char operation;
     int numRows = 0; int numCols = 0;
     int row = 0; int col = 0; int value = 0;
-    string line; stringstream st(line);
+    string line; string line2;
 
     fin >> operation;
     cout << operation << endl;
@@ -40,6 +41,7 @@ int main(int argc, char* argv[]) {
         if (line.length() == 0) {
             break;
         }
+        stringstream st(line);
         st >> row >> col >> value;
         cout << line << endl;
         m1.Insert(row, col, value);
@@ -48,12 +50,13 @@ int main(int argc, char* argv[]) {
     fin >> numRows >> numCols;
     fin.ignore();
     Matrix m2(numRows, numCols);
-    while (getline(fin, line)) {
-        if (line.length() == 0) {
+    while (getline(fin, line2)) {
+        if (line2.length() == 0) {
             break;
         }
-        st >> row >> col >> value;
-        cout << line << endl;
+        stringstream ts(line2);
+        ts >> row >> col >> value;
+        cout << line2 << endl;
         m2.Insert(row, col, value);
     }
 
@@ -69,6 +72,12 @@ int main(int argc, char* argv[]) {
 
     Matrix m4 = m1 + m3;
     m4.Print(fout);
+
+    /*LinkedList myList;
+    myList.addAtHead(4);
+    myList.addAtHead(5);
+    myList.addAtHead(6);
+    myList.Print();*/
 
     return 0;
 }
